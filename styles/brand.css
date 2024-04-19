@@ -3,76 +3,23 @@
   flex-direction: column;
   align-items: center;
   background-color: white;
-  /* border: 2px solid #6ec76b; */
   border-radius: 3px;
   padding: 5px 10px 10px 10px;
   margin-bottom: 0px;
   overflow: hidden;
-}
-
-
-/*Brand Name and Logo defined in menu.css */
-
-
-.brands .brand-rating {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  border-bottom: 2px solid #6ec76b;
-
-  width: 290px;
-  margin-bottom: 15px;
-}
-
-.brands .brand-rating-p {
   font-family: 'Nunito', serif;
-  font-size: 12px;
 }
 
-/* Brand Country */
-.brands .brand-country {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
+.brands h1 {
+  font-family: 'Roboto', serif;
   font-size: 26px;
-
-  border-bottom: 2px solid #6ec76b;
-
-  width: 290px;
-  margin-bottom: 15px;
-}
-
-.brands .brand-country-p {
-  text-align: center;
-  font-family: 'Nunito', serif;
-  font-size: 14px;
-
-  width: 260px;
-}
-
-.brands .brand-country-flag {
-  border: 1px solid #727272;
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
 
-/* Brand Ethical */
-.brands .brand-ethical {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  border-bottom: 2px solid #6ec76b;
-
-  width: 290px;
-  margin-bottom: 15px;
-}
-
-
-/* Brand Name
-.brands .brand-name {
+/* Brand Name and Logo */
+.brand-heading {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -84,20 +31,81 @@
 
   border-bottom: 2px solid #6ec76b;
 
-  width: 240px;
+  width: 280px;
   margin-bottom: 20px;
 }
 
- Brand Logo
-.brands .brand-logo {
+.brand-logo {
+  width: 260px;
+}
+
+
+.brand-rating {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   border-bottom: 2px solid #6ec76b;
 
-  width: 280px;
-  margin-bottom: 20px;
-} */
+  width: 290px;
+  margin-bottom: 15px;
+}
 
-/* Brand Rating */
-/* .brands .brand-rating-title {
+.brand-rating-p {
+
+  font-size: 12px;
+  text-align: center;
+}
+
+/* Brand Country */
+.brand-country {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   font-size: 26px;
 
-} */
+  border-bottom: 2px solid #6ec76b;
+
+  width: 290px;
+  margin-bottom: 15px;
+}
+
+.brand-country-p {
+  text-align: center;
+
+  font-size: 14px;
+
+  width: 260px;
+}
+
+.brand-country-flag {
+  border: 1px solid #727272;
+}
+
+
+/* Brand Ethical */
+.brand-ethical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border-bottom: 2px solid #6ec76b;
+
+  width: 290px;
+  margin-bottom: 15px;
+}
+
+.brand-ethical h4 {
+  font-size: 18px;
+  color: rgb(112, 112, 112);
+}
+
+.brand-ethical p {
+  text-align: center;
+  font-size: 15px;
+  line-height: 22px;
+  color: #52974f;
+  width: 270px;
+}

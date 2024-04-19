@@ -1,23 +1,34 @@
-/* Brand Info */
-.brands .brand-info-menu {
+.extension-menu {
+    margin-top: 15px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    font-family: 'Roboto', serif;
-    font-size: 26px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-
-    /* border-top: 1px solid #6ec76b; */
-    border-bottom: 2px solid #6ec76b;
-
-    width: 280px;
-    margin-bottom: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    
 }
 
-.brands .brand-logo-menu {
-    width: 260px;
+.extension-menu h1{
+    font-family: 'Roboto';
+    margin-bottom: 10px;
+    font-size: 24px;
+ }
+
+.extension-menu h2{
+   font-family: 'Nunito';
+   font-size: 16px;
+   color: rgb(112, 112, 112);
+      margin-bottom: 8px;
+
+    
 }
+
+.extension-menu p{
+    font-family: 'Nunito';
+    font-size: 15px;
+    line-height: 22px;
+    color: #52974f;
+    width: 270px;
+     
+ }
 
     

@@ -10,6 +10,10 @@ body {
     background-color:#adf1a0;
 }
 
+.navbar-brand {
+    margin: 0px;
+}
+
 .search-box{
     display: flex;
     justify-content: center;

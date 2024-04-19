@@ -36,7 +36,7 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       .then(data => {
         const brands = data.data
         if (apiUrl.length === 32) {
-          displayBrandsMenu(brands);
+          displayExtensionMenu();
         }
         else {
           let brandsArray = [];
@@ -75,13 +75,13 @@ function displayBrands(brands) {
     const brandInfo = document.createElement('div');
     const brandLogo = document.createElement('img');
     brandLogo.src = 'http://127.0.0.1' + brand.brand_logo;
-    brandLogo.classList.add('brand-logo-menu');
+    brandLogo.classList.add('brand-logo');
     brandInfo.appendChild(brandLogo);
 
     const brandName = document.createElement('div');
     brandName.textContent = brand.brand_name;
     brandInfo.appendChild(brandName);
-    brandInfo.classList.add('brand-info-menu');
+    brandInfo.classList.add('brand-heading');
     brandDiv.appendChild(brandInfo);
 
     //-----------------------------------------------------------------------
@@ -186,7 +186,7 @@ function displayBrands(brands) {
     let numTicks = 10;
     let tick = 10;
     let tickPos1 = 50
-    let tickPos2 = 90
+    let tickPos2 = 65
 
     //Loop for creating each tick
     for (let i = 0; i < numTicks - 1; i++) {
@@ -221,7 +221,7 @@ function displayBrands(brands) {
     ctx.moveTo(8, 100);
     ctx.lineTo(canvas.width - 8, 100);
     ctx.lineWidth = 1.5;
-    ctx.strokeStyle = 'black';  
+    ctx.strokeStyle = 'black';
     ctx.stroke();
 
     //Displays the rating number text
@@ -234,18 +234,18 @@ function displayBrands(brands) {
     if (brand.rating <= 33) {
       ratingResult.style.color = "red";
       ratingResult.textContent = "Bad";
-      ratingText.textContent = "This brand shows signs of poor sustainability";
+      ratingText.textContent = "This brand shows signs of poor sustainability.";
 
     }
     else if (brand.rating > 33 && brand.rating < 65) {
       ratingResult.style.color = "orange";
-      ratingResult.textContent = "Meh";
-      ratingText.textContent = "This brand shows ok signs of sustainability";
+      ratingResult.textContent = "Medicore";
+      ratingText.textContent = "This brand shows some signs of sustainability, but still has room for improvement.";
     }
     else {
       ratingResult.style.color = "green";
       ratingResult.textContent = "Good";
-      ratingText.textContent = "This brand shows signs of good sustainabilty";
+      ratingText.textContent = "This brand shows signs of good sustainabilty.";
     }
     //adds styling classes for css
     brandRating.classList.add('brand-rating');
@@ -298,7 +298,7 @@ function displayBrands(brands) {
     brandCountry.appendChild(country);
 
     const countryText = document.createElement('p')
-    countryText.textContent = "This brand's main source of materials come from this country";
+    countryText.textContent = "This brand's main source of materials come from this country.";
     countryText.classList.add('brand-country-p');
     brandCountry.appendChild(countryText);
 
@@ -312,16 +312,30 @@ function displayBrands(brands) {
 
     //Creates the title
     const ethicalTitle = document.createElement('h1')
-    ethicalTitle.textContent = 'Summary '
+    ethicalTitle.textContent = 'Summary'
     brandEthical.appendChild(ethicalTitle)
 
-    const ethicalResult = document.createElement('p')
-    if (brand.ethical == 'Yes') {
+    const ethicalResult = document.createElement('h4')
+    const ethicalText = document.createElement('p')
+    if (brand.ethical == 'Yes' && brand.rating >= 65) {
       ethicalResult.textContent = 'This brand is ethical';
-    } else {
-      ethicalResult.textContent = 'This brand is NOT ethical';
+      ethicalText.textContent = 'We recommend purchasing from this brand.';
+    } 
+    else if(brand.ethical == 'Yes' && brand.rating < 65 ){
+      ethicalResult.textContent = 'This brand is somewhat ethical';
+      ethicalText.textContent = 'We recommend to be cautious when purchasing from this brand.';
     }
+    else if(brand.ethical == 'No' && brand.rating < 34 ){
+      ethicalResult.textContent = 'This brand is NOT ethical';
+      ethicalText.textContent = 'We recommend not purchasing from this brand.';
+    }
+    else if(brand.ethical == 'No' && brand.rating < 65 ){
+      ethicalResult.textContent = "This brand isn't very ethical";
+      ethicalText.textContent = 'We recommend to be cautious when purchasing from this brand.';
+    }
+    
     brandEthical.appendChild(ethicalResult)
+    brandEthical.appendChild(ethicalText)
     brandDiv.appendChild(brandEthical);
 
 
@@ -332,47 +346,25 @@ function displayBrands(brands) {
 }
 //-----------------------------------------------------------------------
 {
-  function displayBrandsMenu(brands) {
+  function displayExtensionMenu() {
     const popupContent = document.getElementById('popup');
+    const extensionMenu = document.createElement('div')
 
-    brands.forEach(brand => {
-      const brandDiv = document.createElement('div');
-      brandDiv.classList.add('brands');
+    const menuHeading = document.createElement('h1')
+    menuHeading.textContent = "Welcome to Ecognito!"
+    extensionMenu.appendChild(menuHeading);
 
-      const brandInfo = document.createElement('div');
-      const brandLogo = document.createElement('img');
-      brandLogo.src = 'http://127.0.0.1' + brand.brand_logo;
-      brandLogo.classList.add('brand-logo-menu');
-      brandInfo.appendChild(brandLogo);
+    const menuSubHeading = document.createElement('h2')
+    menuSubHeading.textContent = "This browser extension gives an ethical insight on some of the top brands."
+    extensionMenu.appendChild(menuSubHeading);
 
-      const brandName = document.createElement('div');
-      brandName.textContent = brand.brand_name;
-      brandInfo.appendChild(brandName);
-      brandInfo.classList.add('brand-info-menu');
-      brandDiv.appendChild(brandInfo);
+    const menuText = document.createElement('p')
+    menuText.textContent = "Please select a supported brand from our website."
+    extensionMenu.appendChild(menuText);
 
 
-      popupContent.appendChild(brandDiv);
-    });
-
-  }
-};
-
-
-  //Old displays
-
- // //----Brand Name----
-    // const brandName = document.createElement('div');
-    // brandName.textContent = brand.brand_name;
-    // brandName.classList.add('brand-name');
-    // brandDiv.appendChild(brandName);
-
-
-    // //----Brand Logo----
-    // const brandLogo = document.createElement('img');
-    // brandLogo.src = 'http://127.0.0.1' + brand.brand_logo;
-    // brandLogo.classList.add('brand-logo');
-    // brandDiv.appendChild(brandLogo);
-
-
+    extensionMenu.classList.add('extension-menu');
+    popupContent.appendChild(extensionMenu);
+  };
+}
 

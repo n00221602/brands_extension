@@ -25,16 +25,16 @@
   <!-- Nav Bar -->
   <nav class="navbar navbar-expand-sm">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Bootstrap" width="30"
-          height="24">
-        <a href="popup.html"><i class="display-4 bi bi-list"></i></a>
+      <a class="navbar-brand" href="#" style="font-size: 14px; font-family: 'Roboto'; font-weight:4 00; font-style: italic;">
+        <img src="extension.png" class="pe-1"alt="Bootstrap" width="40">
+        Ecognito
       </a>
-      <form class="d-flex" role="search" onsubmit="searchBrands(); return false;">
-        <input class="form-control me-1" id="searchbar" type="search" placeholder="Search">
-        <button class="btn" type="submit"><i class="bi bi-search"></i></button>
-    </form>
-    
+      
+      <form class="d-flex" style="width: 180px;" role="search" onsubmit="searchBrands(); return false;">
+        <input class="form-control "id="searchbar" type="search" placeholder="Search brands...">
+        <button class="btn m-0" type="submit"><i class="bi bi-search"></i></button>
+      </form>
+
 
     </div>
   </nav>
@@ -43,11 +43,13 @@
     <div class="popup-content" id="popup">
       <!-- <div class="brand" id="brands">
       </div> -->
+      <script src="popup.js"></script>
     </div>
   </div>
 
   </div>
 
 </body>
-<script src="popup.js"></script>
+
+
 </html>
