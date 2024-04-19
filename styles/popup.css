@@ -1,0 +1,22 @@
+body {
+    background-color: white;
+}
+
+.popup-content {
+    width: 320px;
+}
+
+.navbar {
+    background-color:#adf1a0;
+}
+
+.search-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-control {
+    width: 150px;
+}
+

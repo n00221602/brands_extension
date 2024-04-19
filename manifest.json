@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Ecognito",
+  "description": "Base Level Extension",
+  "version": "1.0",
+  "permissions": [
+   "tabs",
+   "activeTab"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "extension.png"
+  },
+  "content_security_policy": {
+    "script-src": ["self", "*"]
+  }
+}
